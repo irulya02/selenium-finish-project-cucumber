@@ -14,8 +14,12 @@ public class LoginPage {
     public WebElement userNameInputField;
 
     @FindBy (id="password")
-    public WebElement userFillsInputPassword;
+    public WebElement userPasswordInputField;
 
     @FindBy(id="login")
     public WebElement loginButton;
-    }
+
+    @FindBy(id="name")
+    public WebElement errorMassage;
+}
+

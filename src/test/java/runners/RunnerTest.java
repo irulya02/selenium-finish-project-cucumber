@@ -8,6 +8,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions (
         features = "src/test/java/features",
         glue = "steps"
+        //tags = "@invalid_password"
+
 )
 public class RunnerTest {
 }

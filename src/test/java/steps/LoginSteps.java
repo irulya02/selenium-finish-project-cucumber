@@ -11,6 +11,7 @@ import pages.ProfilePage;
 
 import java.time.Duration;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class LoginSteps {
@@ -35,7 +36,7 @@ public class LoginSteps {
     @Then("^User fills input password \"([^\"]*)\"$")
     public void userFillsInputPassword(String passwordValue){
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.userFillsInputPassword.sendKeys(passwordValue);
+        loginPage.userPasswordInputField.sendKeys(passwordValue);
     }
     @And("^User clicks on button Login$")
     public void userClicksOnButtonLogin() {
@@ -46,5 +47,17 @@ public class LoginSteps {
     public void thePageProfileIsDisplayed() {
         ProfilePage profilePage = new ProfilePage(driver);
         assertTrue(profilePage.headerProfile.isDisplayed());
+    }
+
+    @Then("^Error massage is displayed$")
+    public void errorMassageIsDisplayed() {
+            LoginPage loginPage = new LoginPage(driver);
+            assertTrue(loginPage.errorMassage.isDisplayed());
+    }
+
+    @And("^Error massage has correct text$")
+    public void errorMassageHasCorrectText() {
+        LoginPage loginPage = new LoginPage(driver);
+        assertEquals("Invalid username or password!",loginPage.errorMassage.getText());
     }
 }
