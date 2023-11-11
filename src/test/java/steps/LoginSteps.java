@@ -55,9 +55,9 @@ public class LoginSteps {
             assertTrue(loginPage.errorMassage.isDisplayed());
     }
 
-    @And("^Error massage has correct text$")
-    public void errorMassageHasCorrectText() {
+    @And("^Error massage with text \"([^\"]*)\" is displayed$")
+    public void errorMassageWithTextIsDisplayed(String expectedText) {
         LoginPage loginPage = new LoginPage(driver);
-        assertEquals("Invalid username or password!",loginPage.errorMassage.getText());
-    }
+        assertEquals(expectedText, loginPage.errorMassage.getText());
+        }
 }

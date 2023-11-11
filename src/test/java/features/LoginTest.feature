@@ -14,4 +14,4 @@ Feature: Login
       Then User fills input password "111111111"
       And User clicks on button Login
       Then Error massage is displayed
-    And Error massage has correct text
+    And Error massage with text "Invalid username or password!" is displayed
